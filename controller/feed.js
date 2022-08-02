@@ -82,7 +82,6 @@ exports.createPost = (req, res, next) => {
   post
     .save()
     .then((result) => {
-      console.log(result);
       res.status(201).json({ message: "Created Succesfully", post: result });
     })
     .catch((err) => {
@@ -160,7 +159,7 @@ exports.updatePost = (req, res, next) => {
       if (post.imageUrl !== imageUrl) {
         deleteImage(post.imageUrl);
       }
-      console.log(post);
+
       post.title = title;
       post.content = content;
       post.imageUrl = imageUrl;
@@ -190,7 +189,7 @@ exports.deletePost = (req, res, next) => {
     .then((post) => {
       deleteImage(postId);
     })
-    .then((result) => console.log(result))
+    .then((result) => {})
     .catch((err) => console.log(err));
   Post.findByIdAndRemove(postId)
     // Post.findById(postId)
@@ -206,7 +205,6 @@ exports.deletePost = (req, res, next) => {
     //     return post.findByIdAndRemove(postId);
     //   })
     .then((result) => {
-      console.log("thanks");
       res.status(200).json({ message: "post deleted succesfully" });
     })
     .catch((err) => {
