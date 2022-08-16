@@ -66,4 +66,5 @@ mongoose
     `mongodb+srv://${mongoUser}:${password}@cluster0.kytwgsm.mongodb.net/${database}?retryWrites=true`
   )
   .then((result) => app.listen(process.env.PORT || 8089))
+
   .catch((err) => console.log(err));
